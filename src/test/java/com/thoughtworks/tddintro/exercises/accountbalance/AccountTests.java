@@ -1,24 +1,25 @@
 package com.thoughtworks.tddintro.exercises.accountbalance;
 
-import org.junit.Ignore;
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 public class AccountTests {
+    Account account = new Account();
+
     @Test
-    @Ignore  // Remove each @Ignore and implement test
     public void shouldIncreaseMyBalanceWhenIDepositMoney(){
-        Account account = new Account();
+        assertEquals(account.deposit(50), 50);
     }
 
     @Test
-    @Ignore  // Remove each @Ignore and implement test
     public void shouldDecreaseMyBalanceWhenIWithdrawMoney(){
-
+        account.deposit(150);
+        assertEquals(account.withdraw(50), 100);
     }
 
     @Test
-    @Ignore  // Remove each @Ignore and implement test
     public void shouldNotDecreaseMyBalanceWhenIWithdrawMoneyAndDoNotHaveEnoughToCoverTheWithdrawal(){
-
+        assertEquals(account.withdraw(50), 0);
     }
 }
